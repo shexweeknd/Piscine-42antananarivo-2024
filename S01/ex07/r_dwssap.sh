@@ -1,0 +1,1 @@
+cat /etc/passwd | grep --invert-match "^#" | awk -F ':' '{print $1}' | awk 'NR %2 == 0' | rev | sort --reverse | sed -n "${FT_LINE1},${FT_LINE2}p" | sed "a\, " | tr -d '\n' | rev | sed 's/ ,/./' | rev
